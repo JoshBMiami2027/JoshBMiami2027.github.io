@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a27">
+  <meta name="description" content="Joshua Blair is a University of Miami senior studying Data Science. Explore his sports analytics projects and his approach to making data understandable.">
+  <title>Joshua Blair — Data Science</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23101a27'/%3E%3Ccircle cx='45' cy='18' r='7' fill='%23c7f27a'/%3E%3Cpath d='M15 16v24c0 7 4 11 11 11s11-4 11-11V29' fill='none' stroke='%23f4f5f1' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root { color-scheme: light; --ink:#101a27; --ink-2:#263545; --paper:#f4f5f1; --white:#fff; --muted:#63717d; --lime:#c7f27a; --line:#dce1dc; --blue:#668ce7; --radius:22px; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:88px; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size:16px; line-height:1.6; }
+    a { color:inherit; }
+    button { font:inherit; }
+    :focus-visible { outline:3px solid #78ab2a; outline-offset:4px; }
+    ::selection { background:var(--lime); color:var(--ink); }
+    .skip-link { position:absolute; left:16px; top:-80px; z-index:20; background:var(--lime); padding:10px 16px; border-radius:8px; }
+    .skip-link:focus { top:14px; }
+    .container { width:min(1180px,calc(100% - 48px)); margin-inline:auto; }
+    .site-header { position:sticky; top:0; z-index:10; background:rgba(244,245,241,.94); backdrop-filter:blur(18px); border-bottom:1px solid rgba(16,26,39,.09); }
+    .header-inner { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:11px; text-decoration:none; font-size:.92rem; font-weight:800; letter-spacing:-.025em; white-space:nowrap; }
+    .brand-mark { display:grid; place-items:center; width:36px; height:36px; border-radius:10px; background:var(--ink); color:var(--lime); font-size:.82rem; letter-spacing:-.06em; }
+    .nav { display:flex; align-items:center; gap:4px; }
+    .nav a { text-decoration:none; font-size:.88rem; font-weight:650; padding:10px 14px; border-radius:99px; color:#465563; transition:background .2s,color .2s; white-space:nowrap; }
+    .nav a:hover, .nav a[aria-current="location"] { background:#e4e9df; color:var(--ink); }
+    .nav a:last-child { background:var(--ink); color:var(--white); margin-left:8px; }
+    .nav a:last-child:hover, .nav a:last-child[aria-current="location"] { background:#344558; color:var(--white); }
+    .hero { position:relative; overflow:hidden; color:#fff; background:var(--ink); }
+    .hero::before { content:""; position:absolute; inset:0; opacity:.25; background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px); background-size:60px 60px; mask-image:linear-gradient(90deg,transparent 10%,black 100%); pointer-events:none; }
+    .hero-inner { position:relative; display:grid; grid-template-columns:1.15fr .85fr; align-items:center; gap:64px; min-height:635px; padding-block:92px 104px; }
+    .eyebrow { display:flex; align-items:center; gap:11px; font-size:.8rem; font-weight:750; letter-spacing:.13em; text-transform:uppercase; }
+    .eyebrow .line { display:inline-block; width:32px; height:2px; background:var(--lime); }
+    .hero h1 { margin:25px 0 21px; font-size:clamp(4.1rem,8.7vw,8.25rem); line-height:.91; letter-spacing:-.095em; font-weight:780; }
+    .hero h1 span { color:var(--lime); }
+    .hero-lead { margin:0; max-width:610px; font-size:clamp(1.2rem,2vw,1.55rem); line-height:1.46; letter-spacing:-.025em; color:#e3e9e5; }
+    .hero-meta { margin:27px 0 0; color:#aab8c1; font-size:.94rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:38px; }
+    .button { display:inline-flex; justify-content:center; align-items:center; gap:10px; min-height:48px; padding:10px 21px; border-radius:999px; text-decoration:none; font-size:.9rem; font-weight:750; transition:transform .2s,background .2s; }
+    .button:hover { transform:translateY(-2px); }
+    .button-primary { background:var(--lime); color:var(--ink); }
+    .button-primary:hover { background:#d8ffa0; }
+    .button-outline { border:1px solid #87939d; color:#fff; }
+    .button-outline:hover { background:#293846; }
+    .hero-card { justify-self:end; width:min(100%,435px); border:1px solid rgba(255,255,255,.16); border-radius:26px; padding:22px; background:linear-gradient(145deg,rgba(61,78,92,.7),rgba(27,42,57,.8)); box-shadow:0 28px 70px rgba(0,0,0,.2); }
+    .card-top { display:flex; justify-content:space-between; align-items:center; color:#cbd5d9; font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    .card-top .dots { display:flex; gap:6px; }
+    .card-top .dots i { width:6px; height:6px; border-radius:50%; background:#90a0a9; }
+    .hero-chart { display:block; width:100%; height:auto; margin-block:22px 14px; }
+    .hero-card-bottom { border-top:1px solid rgba(255,255,255,.16); padding-top:19px; display:flex; justify-content:space-between; gap:15px; align-items:end; }
+    .hero-card-bottom strong { display:block; max-width:225px; font-size:1.26rem; line-height:1.15; letter-spacing:-.045em; }
+    .hero-card-bottom span { font-size:.78rem; color:#b4c0c6; text-align:right; }
+    section { scroll-margin-top:80px; }
+    .section-pad { padding-block:105px; }
+    .section-label { margin:0 0 25px; font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; font-weight:800; display:flex; align-items:center; gap:12px; }
+    .section-label::before { content:""; display:block; width:26px; height:2px; background:currentColor; }
+    .about-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:100px; }
+    .section-title { margin:0; font-size:clamp(2.9rem,5.4vw,5.2rem); line-height:1.07; letter-spacing:-.075em; font-weight:760; }
+    .about-copy { padding-top:11px; }
+    .about-copy p { font-size:1.13rem; line-height:1.76; margin:0 0 19px; color:#3d4b57; }
+    .about-copy strong { color:var(--ink); }
+    .fact-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; border-top:1px solid var(--line); margin-top:45px; padding-top:28px; }
+    .fact-row span { display:block; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; font-weight:800; color:var(--muted); margin-bottom:7px; }
+    .fact-row strong { display:block; font-size:1rem; line-height:1.35; }
+    .projects { background:#e8ece9; }
+    .projects-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:40px; }
+    .projects-head p:last-child { max-width:335px; margin:0 0 5px; color:#52616a; }
+    .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; align-items:start; }
+    .project { background:#fff; border:1px solid #d9e0de; border-radius:var(--radius); overflow:hidden; box-shadow:0 14px 35px rgba(16,26,39,.045); }
+    .project-visual { height:245px; overflow:hidden; padding:22px; display:flex; align-items:center; justify-content:center; position:relative; }
+    .shot-visual { background:#162637; }
+    .dna-visual { background:#d6e2d4; }
+    .project-visual svg { width:min(100%,415px); height:100%; }
+    .visual-tag { position:absolute; top:19px; left:20px; padding:5px 10px; background:rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.2); border-radius:99px; font-size:.72rem; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
+    .dna-visual .visual-tag { background:rgba(255,255,255,.72); border-color:rgba(16,26,39,.1); color:#273a31; }
+    .project-body { padding:30px 31px 28px; }
+    .project-number { font-size:.72rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:#677780; }
+    .project h3 { margin:9px 0 10px; font-size:2rem; line-height:1.16; letter-spacing:-.055em; }
+    .project-summary { margin:0; color:#465560; min-height:78px; }
+    .chips { display:flex; flex-wrap:wrap; gap:7px; margin:23px 0 24px; }
+    .chip { border:1px solid #dfe5df; color:#4a5c61; padding:5px 10px; border-radius:999px; font-size:.77rem; font-weight:650; }
+    .project details { border-top:1px solid #e1e6e3; padding-top:15px; }
+    .project summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:20px; font-size:.88rem; font-weight:800; padding:7px 0; }
+    .project summary::-webkit-details-marker { display:none; }
+    .project summary::after { content:"+"; font-size:1.45rem; font-weight:400; line-height:1; }
+    .project details[open] summary::after { content:"−"; }
+    .project details ul { margin:11px 0 0; padding-left:20px; color:#465560; }
+    .project details li { margin:8px 0; }
+    .direction { background:var(--lime); }
+    .direction-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:100px; align-items:center; }
+    .direction .section-title { max-width:450px; }
+    .direction-copy { padding-top:12px; }
+    .direction-copy p { font-size:clamp(1.25rem,2.1vw,1.65rem); line-height:1.55; letter-spacing:-.028em; margin:0 0 24px; }
+    .direction-copy p:last-child { font-size:1rem; letter-spacing:0; line-height:1.65; margin:0; color:#314124; }
+    .contact { background:var(--ink); color:#fff; }
+    .contact-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:end; }
+    .contact .section-title { max-width:720px; }
+    .contact .section-title em { font-style:normal; color:var(--lime); }
+    .contact-side { padding-bottom:8px; }
+    .contact-side p { margin:0 0 25px; font-size:1.08rem; color:#cad4d8; max-width:425px; }
+    .contact-status { display:flex; gap:12px; align-items:flex-start; border-top:1px solid #40505d; padding-top:19px; color:#abbac1; font-size:.9rem; }
+    .contact-status::before { content:""; flex:none; width:9px; height:9px; margin-top:7px; border-radius:50%; background:var(--lime); }
+    .site-footer { background:var(--ink); color:#9aabb4; border-top:1px solid #334350; }
+    .footer-inner { padding-block:26px; display:flex; justify-content:space-between; gap:20px; font-size:.83rem; }
+    .footer-inner a { color:#dae6e4; text-underline-offset:4px; }
+    @media (max-width:900px) {
+      .hero-inner { grid-template-columns:1fr; gap:48px; min-height:0; }
+      .hero h1 { font-size:clamp(4.5rem,12vw,7rem); }
+      .hero-card { justify-self:start; max-width:520px; }
+      .about-grid,.direction-grid,.contact-grid { gap:46px; }
+      .fact-row { gap:12px; }
+    }
+    @media (max-width:700px) {
+      html { scroll-padding-top:112px; }
+      section { scroll-margin-top:112px; }
+      .container { width:min(100% - 36px,1180px); }
+      .header-inner { display:block; padding-top:10px; }
+      .brand { width:max-content; margin-bottom:8px; }
+      .nav { overflow-x:auto; scrollbar-width:none; margin-inline:-18px; padding:0 12px 8px; }
+      .nav::-webkit-scrollbar { display:none; }
+      .nav a { padding:8px 12px; font-size:.82rem; }
+      .nav a:last-child { margin-left:2px; }
+      .hero-inner { padding-block:78px 75px; gap:46px; }
+      .hero h1 { font-size:clamp(3.8rem,15vw,6.3rem); }
+      .hero-lead { font-size:1.18rem; }
+      .section-pad { padding-block:76px; }
+      .about-grid,.direction-grid,.contact-grid,.project-grid { grid-template-columns:1fr; gap:30px; }
+      .about-copy { padding-top:0; }
+      .fact-row { grid-template-columns:1fr; gap:18px; }
+      .projects-head { display:block; }
+      .projects-head p:last-child { margin-top:20px; }
+      .project-summary { min-height:0; }
+      .contact-grid { gap:35px; }
+      .footer-inner { flex-direction:column; gap:7px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Joshua Blair, back to top"><span class="brand-mark" aria-hidden="true">JB</span><span>Joshua Blair</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#direction">Goals</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <p class="eyebrow"><span class="line" aria-hidden="true"></span> Data Science · University of Miami</p>
+          <h1 id="hero-title">Joshua<br><span>Blair.</span></h1>
+          <p class="hero-lead">I use data to make complex ideas clearer—and useful to more people.</p>
+          <p class="hero-meta">Senior at the University of Miami · Aspiring Data Analyst &amp; Data Scientist</p>
+          <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#about">Get to know me</a></div>
+        </div>
+        <div class="hero-card" aria-label="Illustration of turning scattered data points into a clear trend">
+          <div class="card-top"><span>Data → understanding</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+          <svg class="hero-chart" viewBox="0 0 420 255" role="img" aria-label="Scattered points above a smooth rising trend line">
+            <g stroke="#71828d" stroke-width="1" opacity=".35"><path d="M10 35H410M10 85H410M10 135H410M10 185H410M10 235H410"/><path d="M35 15V238M110 15V238M185 15V238M260 15V238M335 15V238"/></g>
+            <g fill="#9aabb4" opacity=".65"><circle cx="32" cy="190" r="3"/><circle cx="58" cy="158" r="4"/><circle cx="82" cy="202" r="3"/><circle cx="111" cy="176" r="3"/><circle cx="135" cy="120" r="4"/><circle cx="156" cy="150" r="3"/><circle cx="178" cy="105" r="3"/><circle cx="201" cy="127" r="4"/><circle cx="222" cy="96" r="3"/><circle cx="248" cy="117" r="3"/><circle cx="269" cy="74" r="4"/><circle cx="300" cy="89" r="3"/><circle cx="326" cy="52" r="3"/><circle cx="348" cy="80" r="4"/><circle cx="374" cy="38" r="3"/></g>
+            <path d="M22 196 C80 195 100 167 151 153 S211 125 253 110 S329 70 397 43" fill="none" stroke="#c7f27a" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="397" cy="43" r="8" fill="#c7f27a"/><circle cx="397" cy="43" r="15" fill="none" stroke="#c7f27a" opacity=".35"/>
+          </svg>
+          <div class="hero-card-bottom"><strong>Find the signal.<br>Share the meaning.</strong><span>Explore the projects<br>behind the work ↓</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-pad" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div><p class="section-label">01 / About me</p><h2 class="section-title" id="about-title">Curious about data. Focused on people.</h2></div>
+        <div class="about-copy">
+          <p>I’m <strong>Joshua Blair</strong>, a senior at the <strong>University of Miami</strong> studying <strong>Data Science</strong>. I’m interested in what happens after the analysis: whether someone can actually understand the result and use it.</p>
+          <p>I believe data should be comprehensible across backgrounds and levels of technical experience. A useful insight shouldn’t require a specialist to translate it.</p>
+          <div class="fact-row"><div><span>Based at</span><strong>University of Miami</strong></div><div><span>Studying</span><strong>Data Science</strong></div><div><span>Interested in</span><strong>Sports analytics &amp; clear communication</strong></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-pad projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="projects-head"><div><p class="section-label">02 / Selected projects</p><h2 class="section-title" id="projects-title">Work in motion.</h2></div><p>Two sports analytics projects built around prediction, similarity, and making results easier to interpret.</p></div>
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-visual shot-visual">
+              <span class="visual-tag">Shot prediction</span>
+              <svg viewBox="0 0 415 210" role="img" aria-label="Stylized basketball shot chart representing the ShotIQ project">
+                <g fill="none" stroke="#8faabb" stroke-width="1.5" opacity=".7"><path d="M126 210V121a81 81 0 0 1 162 0v89"/><path d="M160 210v-89a47 47 0 0 1 94 0v89"/><path d="M196 210v-65h22v65"/><circle cx="207" cy="149" r="13"/><path d="M66 210C67 9 348 9 349 210" stroke-dasharray="5 7"/></g>
+                <g fill="#c7f27a"><circle cx="99" cy="70" r="5"/><circle cx="160" cy="45" r="4"/><circle cx="237" cy="65" r="5"/><circle cx="287" cy="78" r="4"/><circle cx="336" cy="114" r="5"/><circle cx="134" cy="128" r="4"/><circle cx="276" cy="138" r="5"/><circle cx="188" cy="111" r="4"/></g>
+                <g fill="#7aa2ee"><circle cx="78" cy="142" r="4"/><circle cx="307" cy="50" r="4"/><circle cx="251" cy="107" r="4"/><circle cx="124" cy="48" r="4"/><circle cx="321" cy="170" r="4"/></g>
+              </svg>
+            </div>
+            <div class="project-body"><span class="project-number">Project 01 · Predictive modeling</span><h3>ShotIQ</h3><p class="project-summary">A pro athlete shot prediction model that turns shot probabilities into a more intuitive measure of difficulty and scoring efficiency.</p><div class="chips"><span class="chip">Logistic regression</span><span class="chip">Random forest</span><span class="chip">Visualization</span></div>
+              <details><summary>Explore the project</summary><ul><li>Engineered inputs such as shot distance, angle, and defender proximity.</li><li>Trained classification models to predict shot outcomes and converted probabilities into a shot difficulty score.</li><li>Compared expected and actual performance to identify efficient scorers.</li><li>Visualized shot zones and efficiency through heatmaps.</li></ul></details>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-visual dna-visual">
+              <span class="visual-tag">Player similarity</span>
+              <svg viewBox="0 0 415 210" role="img" aria-label="Stylized network of player profiles representing the MyDNA project">
+                <g fill="none" stroke="#728e84" stroke-width="1.4" opacity=".6"><path d="M67 161L135 87 208 132 278 69 348 119M67 161L159 176 208 132 348 119M135 87L184 44 278 69M159 176L278 69M184 44L348 119"/></g>
+                <g fill="#fff" stroke="#80998f" stroke-width="2"><circle cx="67" cy="161" r="14"/><circle cx="135" cy="87" r="14"/><circle cx="159" cy="176" r="14"/><circle cx="184" cy="44" r="14"/><circle cx="278" cy="69" r="14"/><circle cx="348" cy="119" r="14"/></g>
+                <circle cx="208" cy="132" r="29" fill="#172b34"/><circle cx="208" cy="132" r="17" fill="#c7f27a"/><g fill="#172b34"><circle cx="67" cy="161" r="5"/><circle cx="135" cy="87" r="5"/><circle cx="159" cy="176" r="5"/><circle cx="184" cy="44" r="5"/><circle cx="278" cy="69" r="5"/><circle cx="348" cy="119" r="5"/></g>
+              </svg>
+            </div>
+            <div class="project-body"><span class="project-number">Project 02 · Similarity modeling</span><h3>MyDNA</h3><p class="project-summary">A sports analytics tool that matches a user’s performance profile to real NBA players through statistical similarity.</p><div class="chips"><span class="chip">400+ player profiles</span><span class="chip">Cosine similarity</span><span class="chip">&lt;0.5s per query</span></div>
+              <details><summary>Explore the project</summary><ul><li>Processed stat profiles for more than 400 NBA players.</li><li>Applied feature scaling and standardization to reduce bias from variables with different ranges.</li><li>Used cosine similarity to rank players across multiple statistical dimensions in under half a second per query.</li><li>Returned top matches above 90% similarity on test inputs.</li></ul></details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section-pad direction" id="direction" aria-labelledby="direction-title">
+      <div class="container direction-grid"><div><p class="section-label">03 / Where I’m headed</p><h2 class="section-title" id="direction-title">Make insight accessible.</h2></div><div class="direction-copy"><p>I’m pursuing <strong>Data Analyst</strong> and <strong>Data Scientist</strong> roles after graduation. My goal is to turn large amounts of information into something people from any background can read, question, and use.</p><p>Good analysis should give more people an equal footing. It doesn’t have to be complicated to be valuable.</p></div></div>
+    </section>
+    <section class="section-pad contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid"><div><p class="section-label">04 / Contact</p><h2 class="section-title" id="contact-title">Let’s make the data <em>make sense.</em></h2></div><div class="contact-side"><p>Interested in data science, sports analytics, or a conversation about making information clearer? I’d like to connect.</p><div class="contact-status">My LinkedIn and contact details will be added here soon.</div></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Joshua Blair</span><a href="#top">Back to top ↑</a></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const links = [...document.querySelectorAll('.nav a')];
+    const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        links.forEach(link => {
+          if (link.getAttribute('href') === '#' + visible.target.id) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      }, { rootMargin: '-20% 0px -45% 0px', threshold: [0, .2, .5, .8] });
+      sections.forEach(section => observer.observe(section));
+    }
+  </script>
+</body>
+</html>
